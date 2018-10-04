@@ -1,15 +1,15 @@
 {%extends 'base.html'%}
 {% block content%}
 
-<h1 style="text-align:center;">Welcome to the Gram</h1>
+
 
 <div style="padding-top: 30px;" class="container">
 
         <div class="row">
-
-                <div class="col-md-7">
+      <div class="col-md-1"></div>
+                <div class="col-md-7 ">
                         {% for image in images %}
-                                <div class="card">
+                                <div class="card img-thumbnail">
                                         <p>{{image.caption}}</p>
                                 <img src="{{image.image.url}}" alt="pic" width="500px" height="500px">
                                 </div>
