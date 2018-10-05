@@ -1,16 +1,19 @@
 from django.db import models
-
+from django.contrib.auth.models import User
+from tinymce.models import HTMLField
 
 class Comment(models.Model):
     comment=models.CharField(max_length=60)
-
+class like(models.Model):
+    like=models.IntegerField()
 
 class Image(models.Model):
     image=models.ImageField(upload_to='photos/')
-    caption=models.CharField(max_length=60)
-    likes=models.IntegerField()
+    caption=HTMLField()
+    likes=models.ForeignKey('Like')
     post_date = models.DateTimeField(auto_now_add=True)
     comments=models.ForeignKey('Comment')
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
 
     class Meta:
         ordering=['-post_date']
