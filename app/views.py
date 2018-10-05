@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Image,User,Like
 from .forms import NewImageForm
@@ -24,10 +24,12 @@ def new_image(request):
 @login_required(login_url="/accounts/login/")
 def like(request,operation,pk):
     image = get_object_or_404(Image,pk=pk)
+
     if operation == 'like':
+
         image.likes += 1
         image.save()
     elif operation =='unlike':
         image.likes -= 1
         image.save()
-    return redirect('home')
+    return redirect('Home')
