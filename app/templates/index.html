@@ -10,10 +10,21 @@
                 <div class="col-md-7 ">
 
                         {% for image in images %}
-                                <div class="card img-thumbnail">
-                                 <p>{{image.user.username}}</p>
+                                <div style="border-style:solid;border-color:black;"class="card img-thumbnail">
                                 <img src="{{image.image.url}}" alt="pic" width="500px" height="500px">
-                                <p>{{image.caption}}</p>
+                                {% autoescape off %}
+                                <p> <strong> {{image.user.username}} </strong>  {{image.post_date|timesince}} ago</p>
+
+                                <p> {{image.caption}}</p>
+                                <div class="icons mt-3">
+                              <a id="like" href="{% url 'like' operation='like' pk=image.id%}" style="color:inherit;">
+                                <i class="far fa-heart fa-2x ml-4"></i>
+                                 </a>
+                                 <a href="#" style="color:inherit;"><i class="far fa-comment fa-2x ml-4"></i></a>
+                                  <a href="#" style="color:inherit;"><i class="far fa-bookmark fa-2x float-right mr-4"></i></a>
+                                   </div>
+                                   <h5>likes{{image.like.like}}</h5>
+                                {% endautoescape %}
                                 </div>
                         {% endfor %}
 

@@ -1,12 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from .models import Image,User
+from .models import Image,User,Like
 from .forms import NewImageForm
 
-@login_required(login_url='/accounts/register/')
+@login_required(login_url='/accounts/login/')
 def index(request):
     images=Image.objects.all()
-    # users=User.objects.filter(image_id=pk)
     return render(request,'index.html',{'images':images,})
 @login_required(login_url='/accounts/login/')
 def new_image(request):
@@ -17,8 +16,18 @@ def new_image(request):
             image = form.save(commit=False)
             image.user = current_user
             image.save()
-        return redirect('index')
+        return redirect('Home')
 
     else:
         form = NewImageForm()
     return render(request, 'new_image.html', {"form": form})
+@login_required(login_url="/accounts/login/")
+def like(request,operation,pk):
+    image = get_object_or_404(Image,pk=pk)
+    if operation == 'like':
+        image.likes += 1
+        image.save()
+    elif operation =='unlike':
+        image.likes -= 1
+        image.save()
+    return redirect('home')

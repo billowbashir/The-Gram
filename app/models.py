@@ -4,15 +4,15 @@ from tinymce.models import HTMLField
 
 class Comment(models.Model):
     comment=models.CharField(max_length=60)
-class like(models.Model):
-    like=models.IntegerField()
+class Like(models.Model):
+    like=models.PositiveIntegerField(default=0)
 
 class Image(models.Model):
     image=models.ImageField(upload_to='photos/')
     caption=HTMLField()
-    likes=models.ForeignKey('Like')
+    likes=models.PositiveIntegerField(default=0)
     post_date = models.DateTimeField(auto_now_add=True)
-    comments=models.ForeignKey('Comment')
+    comments=models.ForeignKey('Comment',null=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
 
     class Meta:
