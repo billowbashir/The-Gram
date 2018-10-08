@@ -8,4 +8,4 @@ class NewImageForm(forms.ModelForm):
 class NewProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields=['profile_pic','bio']
+        exclude=['user']

@@ -42,16 +42,16 @@ def profile(request):
 def new_profile(request):
     current_user = request.user
     if request.method == 'POST':
-        form = NewProfileForm(request.POST, request.FILES)
-        if form.is_valid():
-            profile = form.save(commit=False)
+        profile_form = NewProfileForm(request.POST, request.FILES,instance=request.user.profile)
+        if profile_form.is_valid():
+            profile = profile_form.save(commit=False)
             profile.user = current_user
             profile.save()
         return redirect('profile')
 
     else:
-        form = NewProfileForm()
-    return render(request, 'new_profile.html', {"form": form})
+        profile_form = NewProfileForm()
+    return render(request, 'new_profile.html', {"profile_form": profile_form})
 
 def search_profiles(request):
     if 'profile' in request.GET and request.GET['profile']:

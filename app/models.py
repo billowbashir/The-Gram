@@ -7,7 +7,7 @@ class Comment(models.Model):
 class Profile(models.Model):
     profile_pic=models.ImageField(upload_to='photos/')
     bio=models.CharField(max_length=300)
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,related_name='profile',on_delete=models.CASCADE)
 
     @classmethod
     def search_by_profile(cls,search_term):
