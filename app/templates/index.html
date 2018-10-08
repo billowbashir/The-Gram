@@ -18,14 +18,14 @@
                                 <p> {{image.caption}}</p>
                                 <div class="icons mt-3">
                               <a id="like" href="{% url 'like' operation='like' pk=image.id%}" style="color:inherit;">
-                                <i class="far fa-heart fa-2x ml-4"></i>
+                                <i style="color:red;" class="fa fa-heart fa-2x ml-4"></i>
                                  </a>
-                                 <a href="#" style="color:inherit;"><i class="far fa-comment fa-2x ml-4"></i></a>
-                                  <a href="#" style="color:inherit;"><i class="far fa-bookmark fa-2x float-right mr-4"></i></a>
+                                 <a href="#"  style="color:red;"><i class="fa fa-comment fa-2x ml-4"></i></a>
+                                
                                    </div>
 
                                    <h5>likes{{image.likes}}</h5>
-                                   
+
                                 {% endautoescape %}
                                 </div>
                         {% endfor %}
