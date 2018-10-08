@@ -9,6 +9,11 @@ class Profile(models.Model):
     bio=models.CharField(max_length=300)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
 
+    @classmethod
+    def search_by_profile(cls,search_term):
+        profiles=cls.objects.filter(user__icontains=search_term)
+        return profiles
+
 class Image(models.Model):
     image=models.ImageField(upload_to='photos/')
     caption=HTMLField()
