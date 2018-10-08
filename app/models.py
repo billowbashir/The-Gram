@@ -4,8 +4,7 @@ from tinymce.models import HTMLField
 
 class Comment(models.Model):
     comment=models.CharField(max_length=60)
-class Like(models.Model):
-    like=models.PositiveIntegerField(default=0)
+class Profile(models.Model)
 
 class Image(models.Model):
     image=models.ImageField(upload_to='photos/')

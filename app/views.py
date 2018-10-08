@@ -33,3 +33,8 @@ def like(request,operation,pk):
         image.likes -= 1
         image.save()
     return redirect('Home')
+@login_required(login_url="/accounts/login/")
+def profile(request):
+    # current_user=request.user.id
+    images=Image.objects.filter(user=request.user.id)
+    return render (request,'profile.html',{'images':images,})
