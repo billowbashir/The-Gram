@@ -4,7 +4,15 @@
 {{block.super}}
 <div class="container">
 <div class="row">
-  <h1>{{request.user.username}}</h1>
+  {%if profile%}
+  <img src="{{profile.image.url}}" alt="profile picture">
+  <p>{{profile.bio}}</p>
+  {%else%}
+  <p>heyy {{request.user}} is this your first time on the gram navigate <a href="{%url 'new-profile'%}">here</a>to create a profile</p>
+  {%endif%}
+
+  <h1>{{request.user}}</h1>
+  {%if images%}
 {%for image in images%}
 
 <div style="padding-top:80px;"class="col-md-4 ">
@@ -13,6 +21,10 @@
 
 </div>
 {%endfor%}
+{%else%}
+<h2>you seem to have no images</h2>
+<button class="btn btn-primary"><a style="color:white;"href="{%url 'new-image'%}">post an image</a></button>
+{%endif%}
 </div>
 </div>
 <style>

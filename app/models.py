@@ -4,7 +4,10 @@ from tinymce.models import HTMLField
 
 class Comment(models.Model):
     comment=models.CharField(max_length=60)
-class Profile(models.Model)
+class Profile(models.Model):
+    profile_pic=models.ImageField(upload_to='photos/')
+    bio=models.CharField(max_length=300)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
 
 class Image(models.Model):
     image=models.ImageField(upload_to='photos/')

@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Image,User,Like
-from .forms import NewImageForm
+from .models import Image,User,Profile
+from .forms import NewImageForm,NewProfileForm
 
 @login_required(login_url='/accounts/login/')
 def index(request):
@@ -35,6 +35,20 @@ def like(request,operation,pk):
     return redirect('Home')
 @login_required(login_url="/accounts/login/")
 def profile(request):
-    # current_user=request.user.id
+    profile=Profile.objects.filter(user=request.user.id)
     images=Image.objects.filter(user=request.user.id)
-    return render (request,'profile.html',{'images':images,})
+    return render (request,'profile.html',{'images':images,'profile':profile})
+@login_required(login_url="/accounts/login/")
+def new_profile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = current_user
+            profile.save()
+        return redirect('profile')
+
+    else:
+        form = NewProfileForm()
+    return render(request, 'new_profile.html', {"form": form})

@@ -6,6 +6,7 @@ from . import views
 urlpatterns=[
         url(r'^$',views.index,name='Home'),
         url(r'^new/images$', views.new_image, name='new-image'),
+        url(r'^new/profile$', views.new_profile, name='new-profile'),
         url(r'^profile/',views.profile, name='profile'),
         url(r'^like/(?P<operation>.+)/(?P<pk>\d+)',views.like, name='like'),
 ]
