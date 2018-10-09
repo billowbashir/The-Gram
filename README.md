@@ -1,6 +1,5 @@
 # The-Gram
-
-
+![alt text](https://raw.githubusercontent.com/billowbashir/The-Gram/master/media/photos/the-gram.png)
 ## author
 [bashir hassan](https://github.com/billowbashir/)
 
