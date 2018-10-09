@@ -14,6 +14,7 @@
 
                         {% for image in images %}
                                 <div style="border-style:solid;border-color:black;"class="card img-thumbnail">
+                                  <p> <strong> {{image.user.username}} </strong></p>
                                 <img src="{{image.image.url}}" alt="pic" width="500px" height="500px">
                                 {% autoescape off %}
                                 <p> <strong> {{image.user.username}} </strong>  {{image.post_date|timesince}} ago</p>
