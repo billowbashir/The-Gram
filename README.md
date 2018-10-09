@@ -1,18 +1,21 @@
 # The-Gram
- text](https://raw.githubusercontent.com/billowbashir/Galleria/master/media/photos/Galleria.png)
+
 
 ## author
 [bashir hassan](https://github.com/billowbashir/)
 
 ## description
-
+An application that mimics instagram where a user can post photos ,like and comment on photos and follow friends to see their photos
 ## how it works
-
+- a user creates an account
+- a user edits his/her profile
+- a user can post a photo
+- a user can follow friends to see their photos
 ## Installation requirements
 To run the application do the following:
 
 - clone this repo by running:
-` git clone <repo url> `
+` git clone https://github.com/billowbashir/the-gram `
 - set up a virtual environment
  ` python3.6 -m venv  python3.6 -m venv virtual `
  - activate virtual environment
@@ -35,7 +38,7 @@ To run the application do the following:
 - run the application locally with
  ` python manage.py runserver `
 ## Link to live site
-
+https://bashir-the-gram.herokuapp.com
 
 ## likely bugs
 Currently the application has no known bugs but if you come across any issues feel free to contact me from the email address that will be provided below.
