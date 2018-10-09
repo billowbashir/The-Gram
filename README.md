@@ -21,15 +21,15 @@ To run the application do the following:
 ``` pip install -r "requirements.txt" ```
  - create a file .env and put in the following configurations:
    `
-       SECRET_KEY=<secret key>
-        DEBUG=False
-       DB_NAME=<database name>
-        DB_USER='<username>
-        DB_PASSWORD=<your password>
-       DB_HOST='127.0.0.1'
-        MODE='dev'
-       ALLOWED_HOSTS=<your site name>
-        DISABLE_COLLECTSTATIC=1
+      - SECRET_KEY=<secret key>
+      - DEBUG=False
+      - DB_NAME=<database name>
+      - DB_USER='<username>
+      - DB_PASSWORD=<your password>
+      - DB_HOST='127.0.0.1'
+      - MODE='dev'
+      - ALLOWED_HOSTS=<your site name>
+      - DISABLE_COLLECTSTATIC=1
    `
 
 - run the application locally with
