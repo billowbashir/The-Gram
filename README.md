@@ -12,15 +12,15 @@
 To run the application do the following:
 
 - clone this repo by running:
-``` git clone <repo url> ```
+` git clone <repo url> `
 - set up a virtual environment
- ``` python3.6 -m venv  python3.6 -m venv virtual ```
+ ` python3.6 -m venv  python3.6 -m venv virtual `
  - activate virtual environment
-  ``` source virtual/bin/activate ```
+  ` source virtual/bin/activate `
 - to install all requirements
-``` pip install -r "requirements.txt" ```
+` pip install -r "requirements.txt" `
  - create a file .env and put in the following configurations:
-   `
+   ```
       - SECRET_KEY=<secret key>
       - DEBUG=False
       - DB_NAME=<database name>
@@ -30,10 +30,10 @@ To run the application do the following:
       - MODE='dev'
       - ALLOWED_HOSTS=<your site name>
       - DISABLE_COLLECTSTATIC=1
-   `
+   ```
 
 - run the application locally with
- ``` python manage.py runserver ```
+ ` python manage.py runserver `
 ## Link to live site
 
 
