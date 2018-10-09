@@ -13,6 +13,7 @@
 
   {% block styles %}
     {% bootstrap_css %}
+    <link href="https://fonts.googleapis.com/css?family=Charmonman|Monoton" rel="stylesheet">
   {% endblock %}
 
 </head>
@@ -20,7 +21,11 @@
 <body>
     {% include "navbar.html" %}
 
-  {% block content %}  {%endblock%}
+
+  {%block content%}
+{{super}}
+<link href="https://fonts.googleapis.com/css?family=Charmonman|Monoton" rel="stylesheet">
+{%endblock%}
 
 
   {% block scripts %}
