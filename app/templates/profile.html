@@ -6,9 +6,19 @@
 <div class="row">
   {%if profiles%}
   {%for profile in profiles%}
-  <img class="img-thumbnail"style="border-radius:70%;height:200px;width:200px;" src="{{profile.profile_pic.url}}" alt="profile picture">
+  <h2 style="text-align:center">Profile</h2>
+
+<div class="card" style="color:white;background-color:#4F0505">
+  <img src="{{profile.profile_pic.url}}" alt="profile picture" style="border-radius:70%;height:200px;width:200px;">
+  <h1>{{profile.user.username}}</h1>
+  <p class="title">{{profile.bio}}</p>
+
+
+ <p><button>Follow</button></p>
+</div>
+  <!-- <img class="img-thumbnail"style="border-radius:70%;height:200px;width:200px;" src="{{profile.profile_pic.url}}" alt="profile picture">
   <h1 style="color:white;text-align:center;">{{request.user}}</h1>
-  <p style="color:white;">{{profile.bio}}</p>
+  <p style="color:white;">{{profile.bio}}</p> -->
   {%endfor%}
   {%else%}
   <p style="color:white;text-align:center;">heyy {{request.user}} is this your first time on the gram navigate <a style="color:black;" href="{%url 'new-profile'%}">here</a> to create a profile</p>
@@ -32,11 +42,48 @@
 
 </div>
 </div>
-<style>
+<!-- <style>
 .img-thumbnail{
   background-color: #4F0505;
+} -->
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
 }
 
+.title {
+  color: grey;
+  font-size: 18px;
+}
 
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
 </style>
+
+
+<!-- </style> -->
 {%endblock%}
