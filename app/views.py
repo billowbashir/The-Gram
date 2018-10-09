@@ -35,14 +35,14 @@ def like(request,operation,pk):
     return redirect('Home')
 @login_required(login_url="/accounts/login/")
 def profile(request):
-    profile=Profile.objects.filter(user=request.user.id)
+    profiles=Profile.objects.filter(user=request.user.id)
     images=Image.objects.filter(user=request.user.id)
-    return render (request,'profile.html',{'images':images,'profile':profile})
+    return render (request,'profile.html',{'images':images,'profiles':profiles,})
 @login_required(login_url="/accounts/login/")
 def new_profile(request):
     current_user = request.user
     if request.method == 'POST':
-        profile_form = NewProfileForm(request.POST, request.FILES,instance=request.user.profile)
+        profile_form = NewProfileForm(request.POST, request.FILES)
         if profile_form.is_valid():
             profile = profile_form.save(commit=False)
             profile.user = current_user
