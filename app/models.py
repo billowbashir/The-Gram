@@ -22,7 +22,7 @@ class Image(models.Model):
     likes=models.PositiveIntegerField(default=0)
     post_date = models.DateTimeField(auto_now_add=True)
     comments=models.ForeignKey('Comment',null=True)
-    profile=models.ForeignKey('Profile',null=True)
+    profile=models.ForeignKey(Profile,null=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
 
     class Meta:
