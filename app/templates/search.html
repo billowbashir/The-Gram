@@ -16,7 +16,7 @@
   {% if profiles %}
     {% for profile in profiles %}
       <div class="col-sm-6 col-md-3">
-          <img src='{{profile.profile_pic.url}}' alt="profile_pic" >
+          <img style="height:200px;width:200px;"class"img-thumbnail" src='{{profile.profile_pic.url}}' alt="profile_pic" >
           <p>{{profile.bio}}</p>
       </div>
     {% endfor %}
