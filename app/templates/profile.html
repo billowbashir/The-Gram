@@ -6,7 +6,7 @@
 <div class="row">
   {%if profiles%}
   {%for profile in profiles%}
-  <img class="img-thumbnail"style="border-radius:50%;" src="{{profile.profile_pic.url}}" alt="profile picture">
+  <img class="img-thumbnail"style="border-radius:70%;height:200px;width:200px;" src="{{profile.profile_pic.url}}" alt="profile picture">
   <h1 style="color:white;text-align:center;">{{request.user}}</h1>
   <p style="color:white;">{{profile.bio}}</p>
   {%endfor%}

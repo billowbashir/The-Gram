@@ -1,6 +1,6 @@
 {%extends 'base.html'%}
 {% block content %}
-<div class="container">
+<div style="padding-top:100px;color:white;"class="container">
 
   <div class="row">
     {% if profiles%}
@@ -16,7 +16,7 @@
   {% if profiles %}
     {% for profile in profiles %}
       <div class="col-sm-6 col-md-3">
-          <img src='{{profile.profile_pic.image.url}}' >
+          <img src='{{profile.profile_pic.url}}' alt="profile_pic" >
           <p>{{profile.bio}}</p>
       </div>
     {% endfor %}

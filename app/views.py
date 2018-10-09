@@ -54,12 +54,15 @@ def new_profile(request):
     return render(request, 'new_profile.html', {"profile_form": profile_form})
 
 def search_profiles(request):
-    if 'profile' in request.GET and request.GET['profile']:
-        search_term=request.GET.get('profile')
-        searched_profiles=Profile.search_by_profile(search_term)
+    if 'profiles' in request.GET and request.GET['profiles']:
+        search_term=request.GET.get('profiles')
+        user=User.objects.filter(username=search_term)
+        print(user)
+        profiles=Profile.objects.filter(user=user)
+        print(profiles)
         message=f'{search_term}'
 
-        return render(request,'search.html',{"message":message,"profiles":searched_profiles,})
+        return render(request,'search.html',{"message":message,"profiles":profiles,})
 
     else:
         message='You Havent searched for any term'
